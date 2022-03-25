@@ -9,7 +9,8 @@ guitars = doc.search("a").
   select { |a| a.include?("/collections/fflp-electric-guitars/products") }.
   uniq.
   map{ |a| "https://guitarsgarden.com#{a}" }.
-  sort.
-  join("\n")
+  sort
 
-File.open("available_guitars.txt", "w") { |f| f.write guitars }
+puts guitars
+
+File.open("available_guitars.txt", "w") { |f| f.write guitars.join("\n") }
